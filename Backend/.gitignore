@@ -12,7 +12,8 @@ dist
 dist-ssr
 *.local
 .env
-dotenv.local
+# Fichiers de configuration sensibles
+.env
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

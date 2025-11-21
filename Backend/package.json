@@ -1,7 +1,7 @@
 {
   "name": "metal-transformer-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend Node.js pour l'application Metal Transformer",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,8 +10,8 @@
 
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Chico-WebDev",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "cors": "^2.8.5",

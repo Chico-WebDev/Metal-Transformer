@@ -1,14 +1,14 @@
 {
   "name": "metal-transformer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Application Metal Transformer avec Frontend React et Backend Node",
   "main": "Backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev:back\" \"npm run dev:front\"",
     "dev:back": "npm --prefix Backend run dev",
     "dev:front": "npm --prefix frontend run dev",
-    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "build": "npm install --prefix Backend && npm install --prefix frontend && npm run build --prefix frontend",
     "start": "npm --prefix Backend start"
 
   },
@@ -17,9 +17,9 @@
     "url": "git+https://github.com/Chico-WebDev/Metal-Transformer.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "author": "Chico-WebDev",
+  "license": "MIT",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Chico-WebDev/Metal-Transformer/issues"
   },
@@ -33,4 +33,5 @@
     "concurrently": "^9.2.1",
     "nodemon": "^3.1.11"
   }
+
 }

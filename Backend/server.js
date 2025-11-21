@@ -21,22 +21,17 @@ app.use(cors({
 	credentials: true, // 🔥 autorise les cookies cross-origin
 }));
 // servir les fichiers du frontend
+// Pour __dirname avec ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// Sert le frontend build (Vite)
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-// });
-
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-	});
-}
+// Toutes les routes non gérées renvoient index.html
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
 
 // Transporteur Nodemailer (Gmail)
 const transporter = nodemailer.createTransport({

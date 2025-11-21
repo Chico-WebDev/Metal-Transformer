@@ -9,8 +9,7 @@
   "dev:back": "npm --prefix Backend run dev",
   "dev:front": "npm --prefix frontend run dev",
 
-  "build": "npm install --prefix frontend && npm run build --prefix frontend",
-
+"build": "npm install --prefix Backend && npm install --prefix frontend && npm run build --prefix frontend",
   "start": "node Backend/server.js"
 },
 

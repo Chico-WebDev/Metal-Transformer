@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-MT.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -111,7 +111,7 @@ const Footer = () => {
                   className="flex items-start gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
                 >
                   <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:text-primary" />
-                  <span>+225 01 02 03 04</span>
+                  <span>+225 07 49 62 45 33</span>
                 </a>
               </li>
               <li>

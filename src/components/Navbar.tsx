@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-MT.jpg";
+import { ThemeToggle } from "./ThemeToggle.tsx";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,6 +74,7 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
+            <ThemeToggle />
             <a
               href="tel:+22501020304"
               className="flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-lg hover:shadow-glow transition-all duration-300"
@@ -82,13 +84,16 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-foreground"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-foreground"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 

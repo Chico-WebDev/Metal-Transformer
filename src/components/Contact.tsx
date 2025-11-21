@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, MessageCircle, Send } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
+import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,33 +20,74 @@ const Contact = () => {
       toast.error("Veuillez remplir tous les champs obligatoires");
       return;
     }
+  }
 
     // Message WhatsApp
-    const whatsappMessage = `Bonjour Metal Transformer,%0A%0ANom: ${formData.name}%0ATéléphone: ${formData.phone}%0AEmail: ${formData.email}%0A%0AMessage:%0A${formData.message}`;
-    window.open(`https://wa.me/22501020304?text=${whatsappMessage}`, "_blank");
-    
-    toast.success("Redirection vers WhatsApp...");
-    
-    // Reset form
-    setFormData({ name: "", phone: "", email: "", message: "" });
-  };
+const handleWhatsAppSubmit = (e) => {
+  e.preventDefault();
+
+  const whatsappMessage = `
+*Bonjour Metal Transformer,*
+
+Je vous contacte pour une prise d'information / demande de service.
+
+*Nom :* ${formData.name}
+*Téléphone :* ${formData.phone}
+*Email :* ${formData.email}
+
+*Message :*
+${formData.message}
+
+Merci de votre retour.
+Metal Transformer ⚙️🔥
+`;
+
+  const whatsappUrl = `https://wa.me/2250749624533?text=${encodeURIComponent(whatsappMessage)}`;
+
+  window.open(whatsappUrl, "_blank");
+  toast.success("Redirection vers WhatsApp...");
+
+  setFormData({ name: "", phone: "", email: "", message: "" });
+};
+
+
+const handleEmailSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post("http://localhost:5000/send-email", formData);
+
+    if (res.data.success) {
+      toast.success("Email envoyé !");
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    } else {
+      toast.error("Erreur d'envoi !");
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error("Erreur d'envoi !");
+  }
+};
+
+  
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/22501020304?text=Bonjour%20Metal%20Transformer,%20je%20souhaite%20un%20devis", "_blank");
+    window.open("https://wa.me/2250749624533?text=Bonjour%20Metal%20Transformer,%20je%20souhaite%20un%20devis", "_blank");
   };
+
 
   const contactInfo = [
     {
       icon: Phone,
       title: "Téléphone",
-      content: "+225 01 02 03 04",
-      href: "tel:+22501020304",
+      content: "+225 07 49 62 45 33",
+      href: "tel:+2250749624533",
     },
     {
       icon: Mail,
       title: "Email",
       content: "contact@metaltransformer.ci",
-      href: "mailto:contact@metaltransformer.ci",
+      href: "mailto:chicowebdev@gmail.com",
     },
     {
       icon: MapPin,
@@ -195,18 +237,35 @@ const Contact = () => {
                   required
                 />
               </div>
+              <div className="flex gap-2 md:gap-4 lg:gap-6">
+                <div className="flex flex-col gap-2">
+                  <button
+                    onClick={handleWhatsAppSubmit}
+                    className="w-full flex items-center justify-center gap-2 px-2 py-3 lg:px-8 lg:py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-glow transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    <Send className="w-5 h-5" />
+                    Envoyer via WhatsApp
+                  </button>
 
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-glow transition-all duration-300 hover:scale-[1.02]"
-              >
-                <Send className="w-5 h-5" />
-                Envoyer via WhatsApp
-              </button>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Vous serez redirigé vers WhatsApp pour finaliser l'envoi
+                  </p>
+                </div>
+                
+                <div className="flex flex-col gap-2">
+                <button
+                  onClick={handleEmailSubmit}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 lg:px-8 lg:py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-glow transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <Send className="w-5 h-5" />
+                  Envoyer via Email
+                </button>
 
-              <p className="text-sm text-muted-foreground text-center">
-                Vous serez redirigé vers WhatsApp pour finaliser l'envoi
-              </p>
+                <p className="text-sm text-muted-foreground text-center">
+                  Vous serez redirigé vers Gmail pour finaliser l'envoi
+                </p>
+              </div>
+            </div>
             </form>
           </motion.div>
         </div>

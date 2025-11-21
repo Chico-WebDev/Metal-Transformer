@@ -1,8 +1,14 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "metal_transformer",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chico-WebDev/Metal-Transformer"
+  },
+  "author": "Chico-WebDev",
+  "description": "Application React moderne de soudure métallique avec TypeScript et ShadCN UI",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -40,6 +46,7 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tanstack/react-query": "^5.83.0",
+    "axios": "^1.13.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",

@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-welding.jpg";
 
 const Hero = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/22501020304?text=Bonjour%20Metal%20Transformer,%20je%20souhaite%20un%20devis", "_blank");
+    window.open("https://wa.me/2250749624533?text=Bonjour%20Metal%20Transformer,%20je%20souhaite%20un%20devis", "_blank");
   };
 
   return (
@@ -14,7 +14,7 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Soudure professionnelle"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-100"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background"></div>
       </div>

@@ -14,7 +14,12 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// const __dirname = path.resolve();
 
+app.use(cors({
+	origin: ["http://localhost:8080", "https://metal-transformer.onrender.com", "https://metal-transformer.vercel.app"], // ou l'URL de ton frontend
+	credentials: true, // 🔥 autorise les cookies cross-origin
+}));
 // servir les fichiers du frontend
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

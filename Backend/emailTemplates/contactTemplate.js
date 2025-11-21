@@ -6,7 +6,7 @@ export default function contactTemplate({ name, phone, email, message }) {
 
       <!-- Logo -->
       <div style="text-align:center; margin-bottom:20px;">
-        <img src="./logo-MT.jpg" width="130" alt="Logo Metal Transformer" />
+        <img src="https://metal-transformer.onrender.com/logo-MT.jpg" width="130" alt="Logo Metal Transformer" />
       </div>
 
       <!-- Header -->

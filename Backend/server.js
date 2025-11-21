@@ -3,12 +3,28 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import contactTemplate from "./emailTemplates/contactTemplate.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static("public"));
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// servir les fichiers du frontend
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
+
 
 // Transporteur Nodemailer (Gmail)
 const transporter = nodemailer.createTransport({
@@ -20,7 +36,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Route d’envoi email
-app.post("/send-email", async (req, res) => {
+app.post("/api/send-email", async (req, res) => {
   try {
     const { name, phone, email, message } = req.body;
 
@@ -40,4 +56,8 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("Serveur lancé sur http://localhost:5000"));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log("Serveur lancé sur le port " + PORT);
+});

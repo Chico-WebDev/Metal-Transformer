@@ -20,18 +20,21 @@ app.use(cors({
 	origin: ["http://localhost:8080", "https://metal-transformer.onrender.com", "https://metal-transformer.vercel.app"], // ou l'URL de ton frontend
 	credentials: true, // 🔥 autorise les cookies cross-origin
 }));
+
+
+
 // servir les fichiers du frontend
 // Pour __dirname avec ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.resolve();
 
 // Sert le frontend build (Vite)
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-// Toutes les routes non gérées renvoient index.html
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+	});
+}
 
 // Transporteur Nodemailer (Gmail)
 const transporter = nodemailer.createTransport({

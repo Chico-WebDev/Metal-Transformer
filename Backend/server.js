@@ -4,7 +4,6 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import contactTemplate from "./emailTemplates/contactTemplate.js";
 import path from "path";
-import { fileURLToPath } from "url";
 
 dotenv.config();
 

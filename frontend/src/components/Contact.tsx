@@ -86,8 +86,8 @@ const handleEmailSubmit = async (e) => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@metaltransformer.ci",
-      href: "mailto:chicowebdev@gmail.com",
+      content: "metaltransformer78@gmail.com",
+      href: "mailto:metaltransformer78@gmail.com",
     },
     {
       icon: MapPin,

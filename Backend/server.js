@@ -45,7 +45,7 @@ app.post("/api/send-email", async (req, res) => {
 
     await resend.emails.send({
       from: process.env.MAIL_FROM || "Metal Transformer <onboarding@resend.dev>",
-      to: process.env.MAIL_TO || "metaltransformer78@gmail.com", // Destinataire final
+      to: process.env.MAIL_TO || "chicowebdev@gmail.com", // Destinataire final
       reply_to: email || undefined,
       subject: "Nouveau message - Metal Transformer",
       html: contactTemplate({ name, phone, email, message }),

@@ -55,7 +55,7 @@ const handleEmailSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await axios.post("https://metal-transformer.onrender.com/api/send-email", formData);
+    const res = await axios.post("http://localhost:5000/api/send-email", formData);
 
     if (res.data.success) {
       toast.success("Email envoyé !");

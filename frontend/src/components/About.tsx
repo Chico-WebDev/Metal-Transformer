@@ -11,7 +11,7 @@ const About = () => {
     {
       icon: Users,
       title: "Équipe Experte",
-      description: "Soudeurs certifiés avec plus de 10 ans d'expérience dans le métallique.",
+      description: "Soudeurs certifiés avec plus de 10 ans d'expérience dans la soudure industrielle & métallique.",
     },
     {
       icon: Target,
@@ -41,7 +41,7 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              Basés à Abidjan, nous sommes spécialisés dans la soudure métallique et la fabrication 
+              Basés à Abidjan, nous sommes spécialisés dans la soudure industrielle & métallique et la fabrication 
               de structures sur-mesure depuis plus de 10 ans.
             </p>
 
@@ -56,7 +56,7 @@ const About = () => {
                 <div>
                   <h4 className="font-semibold mb-1">Notre Vision</h4>
                   <p className="text-muted-foreground">
-                    Devenir la référence en soudure métallique en Côte d'Ivoire, reconnue pour 
+                    Devenir la référence en soudure industrielle & métallique en Côte d'Ivoire, reconnue pour 
                     l'innovation et la qualité de nos réalisations.
                   </p>
                 </div>

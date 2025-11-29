@@ -14,9 +14,12 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Soudure professionnelle"
-          className="w-full h-full object-cover opacity-100"
+          className="w-full h-full object-cover opacity-100 mix-blend-normal dark:mix-blend-overlay"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background"></div>
+        <div className="absolute inset-0 
+      bg-gradient-to-b 
+      from-black/40 via-black/30 to-black/50
+      dark:from-black/60 dark:via-black/40 dark:to-black/70"></div>
       </div>
 
       {/* Content */}
@@ -36,12 +39,12 @@ const Hero = () => {
               <span className="text-primary font-semibold">🔥 Excellence en Soudure Métallique</span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
               Transformez Vos Idées en{" "}
               <span className="text-gradient">Structures d'Acier</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground text-gray-400 mb-8 max-w-2xl mx-auto">
               Spécialiste de la soudure métallique à Abidjan. Portails, charpentes, escaliers et meubles sur-mesure. 
               Qualité professionnelle garantie.
             </p>

@@ -6,7 +6,7 @@ const Footer = () => {
 
   const links = {
     services: [
-      { label: "Soudure Métallique", href: "#services" },
+      { label: "Soudure industrielle & Métallique", href: "#services" },
       { label: "Portails & Clôtures", href: "#services" },
       { label: "Charpentes", href: "#services" },
       { label: "Escaliers", href: "#services" },
@@ -116,11 +116,11 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:contact@metaltransformer.ci"
+                  href="mailto:metaltransformer78@gmail.com"
                   className="flex items-start gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
                 >
                   <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:text-primary" />
-                  <span>contact@metaltransformer.ci</span>
+                  <span>metaltransformer78@gmail.com</span>
                 </a>
               </li>
               <li>

@@ -26,9 +26,13 @@ const Navbar = () => {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
+
+    // attendre que le menu se ferme réellement
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }, 300); // 200-300ms = parfait
   };
 
   return (
@@ -36,10 +40,12 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-lg shadow-metal" : "bg-transparent"
+       scrolled
+    ? "bg-background/95 backdrop-blur-lg shadow-metal"
+    : "bg-white/60 dark:bg-transparent backdrop-blur-md"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2 md:px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.a
@@ -76,7 +82,7 @@ const Navbar = () => {
             ))}
             <ThemeToggle />
             <a
-              href="tel:+22501020304"
+              href="tel:+2250749624533"
               className="flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-lg hover:shadow-glow transition-all duration-300"
             >
               <Phone className="w-4 h-4" />
@@ -121,7 +127,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="tel:+22501020304"
+                href="tel:+2250749624533"
                 className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-primary text-primary-foreground rounded-lg mt-4"
               >
                 <Phone className="w-4 h-4" />

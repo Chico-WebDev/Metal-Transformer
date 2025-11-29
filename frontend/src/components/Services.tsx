@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Flame, Shield, Drill, Home, Wrench, Settings } from "lucide-react";
+import { Flame, Shield, Drill, Home, Wrench, Settings, Factory, Hammer, Building } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: Flame,
-      title: "Soudure Métallique",
+      title: "Soudure industriel & Métallique",
       description: "Soudure professionnelle MIG, TIG et ARC pour tous types de métaux. Précision et solidité garanties.",
     },
     {
@@ -23,15 +23,39 @@ const Services = () => {
       title: "Escaliers & Garde-corps",
       description: "Escaliers métalliques élégants et garde-corps de sécurité conformes aux normes.",
     },
-    {
-      icon: Wrench,
-      title: "Meubles Métalliques",
-      description: "Mobilier industriel personnalisé : tables, étagères, bureaux et créations uniques.",
-    },
+    // {
+    //   icon: Wrench,
+    //   title: "Meubles Métalliques",
+    //   description: "Mobilier industriel personnalisé : tables, étagères, bureaux et créations uniques.",
+    // },
     {
       icon: Settings,
       title: "Réparations & Modifications",
       description: "Service de réparation et modification de toutes structures métalliques existantes.",
+    },
+    {
+      icon: Wrench,
+      title: "Tuyauterie Industrielle",
+      description:
+        "Installation et fabrication de réseaux de tuyauterie adaptés aux systèmes industriels et résidentiels.",
+    },
+    {
+      icon: Factory,
+      title: "Chaudronnerie",
+      description:
+        "Fabrication, assemblage et transformation de pièces métalliques complexes selon vos besoins.",
+    },
+    {
+      icon: Hammer,
+      title: "Ferronnerie",
+      description:
+        "Créations métalliques décoratives et fonctionnelles : grilles, rampes, portails artistiques et plus.",
+    },
+    {
+      icon: Building,
+      title: "Construction Métallique",
+      description:
+        "Conception et réalisation de structures métalliques durables pour tous types de bâtiments.",
     },
   ];
 
